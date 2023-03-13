@@ -5,3 +5,9 @@
 /.vs/SecureCode/v16/.suo
 /SecureCode/bin
 /SecureCode/obj
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
