@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SecureCode.Security;
+using System;
 
 namespace SecureCode
 {
@@ -6,7 +7,8 @@ namespace SecureCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var cipherText = DESEncryption.EncryptText("Hello rhis is ra");
+            var decryptedText = DESEncryption.DecryptText(cipherText);
         }
     }
 }
