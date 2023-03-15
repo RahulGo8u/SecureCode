@@ -13,13 +13,13 @@ namespace SecureCode.Security
     public static class DESEncryption
     {
         #region Helper Functions
-        public static string EncryptText(string text)
+        public static string Encrypt(string text)
         {
-            return DESEncrypt(text);
+            return EncryptText(text);
         }
-        public static string DecryptText(string text)
+        public static string Decrypt(string text)
         {
-            return DESDecrypt(text);
+            return DecryptCipher(text);
         }        
         #endregion Helper Functions
 
@@ -32,7 +32,7 @@ namespace SecureCode.Security
         /// </summary>
         /// <param name="plainText"></param>
         /// <returns></returns>
-        private static string DESEncrypt(string plainText)
+        private static string EncryptText(string plainText)
         {
             var keyArray = Constants.EncryptionKey.Length > 8 ? EncodingHelper.GetUTF8ByteArray(Constants.EncryptionKey.Substring(0, 8)) : EncodingHelper.GetUTF8ByteArray(Constants.EncryptionKey);
             var plainTextArray = EncodingHelper.GetUTF8ByteArray(plainText);
@@ -51,7 +51,7 @@ namespace SecureCode.Security
                 throw;
             }
         }
-        private static string DESDecrypt(string cipherText)
+        private static string DecryptCipher(string cipherText)
         {
             var keyArray = Constants.EncryptionKey.Length > 8 ? EncodingHelper.GetUTF8ByteArray(Constants.EncryptionKey.Substring(0, 8)) : EncodingHelper.GetUTF8ByteArray(Constants.EncryptionKey);
             var ivArray = Constants.EncodedIV;
